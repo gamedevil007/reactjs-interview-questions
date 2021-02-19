@@ -360,8 +360,10 @@ You can download the PDF and Epub version of this repository from the latest run
 |323| [What is the difference between Imperative and Declarative in React?](#what-is-the-difference-between-imperative-and-declarative-in-react)|
 |324| [What are the benefits of using typescript with reactjs?](#what-are-the-benefits-of-using-typescript-with-reactjs)|
 |325| [How do you make sure that user remains authenticated on page refresh while using Context API State Management?](#how-do-you-make-sure-that-user-remains-authenticated-on-page-refresh-while-using-context-api-state-management)|
-|326| [What are the benefits of new JSX transform?](#what-are-the-benefits-of-new-jsx-transform)
-|327| [How does new JSX transform different from old transform?](#how-does-new-jsx-transform-different-from-old-transform)
+|326| [What are the benefits of new JSX transform?](#what-are-the-benefits-of-new-jsx-transform)|
+|327| [How does new JSX transform different from old transform?](#how-does-new-jsx-transform-different-from-old-transform)|
+|328| [How do you get redux scaffolding using create-react-app?](#how-do-you-get-redux-scaffolding-using-create-react-app)|
+|329| [What are React Server components?](#what-are-react-server-components)
 
 ## Core React
 
@@ -1063,7 +1065,7 @@ You can download the PDF and Epub version of this repository from the latest run
     React 16.3+
 
     - **getDerivedStateFromProps:** Invoked right before calling `render()` and is invoked on *every* render. This exists for rare use cases where you need derived state. Worth reading [if you need derived state](https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html).
-    - **componentDidMount:** Executed after first rendering and here all AJAX requests, DOM or state updates, and set up event listeners should occur.
+    - **componentDidMount:** Executed after first rendering and where all AJAX requests, DOM or state updates, and set up event listeners should occur.
     - **shouldComponentUpdate:** Determines if the component will be updated or not. By default it returns `true`. If you are sure that the component doesn't need to render after state or props are updated, you can return false value. It is a great place to improve performance as it allows you to prevent a re-render if component receives new prop.
     - **getSnapshotBeforeUpdate:** Executed right before rendered output is committed to the DOM. Any value returned by this will be passed into `componentDidUpdate()`. This is useful to capture information from the DOM i.e. scroll position.
     - **componentDidUpdate:** Mostly it is used to update the DOM in response to prop or state changes. This will not fire if `shouldComponentUpdate()` returns `false`.
@@ -1443,6 +1445,26 @@ You can download the PDF and Epub version of this repository from the latest run
 
     **Note:** In React v15.5 *PropTypes* were moved from `React.PropTypes` to `prop-types` library.
 
+    *The Equivalent Functional Component*
+
+    ```jsx harmony
+    import React from 'react'
+    import PropTypes from 'prop-types'
+   
+    function User() {
+      return (
+        <>
+          <h1>{`Welcome, ${this.props.name}`}</h1>
+          <h2>{`Age, ${this.props.age}`}</h2>
+        </>
+      )
+    }
+
+    User.propTypes = {
+        name: PropTypes.string.isRequired,
+        age: PropTypes.number.isRequired
+      }
+    ```
 
    **[⬆ Back to Top](#table-of-contents)**
     
@@ -2206,7 +2228,8 @@ You can download the PDF and Epub version of this repository from the latest run
      The component names should start with a uppercase letter but there are few exceptions on this convention. The lowercase tag names with a dot (property accessors) are still considered as valid component names.
 
      For example the below tag can be compiled to a valid component,
-     ```javascript
+     
+     ```jsx harmony
      render(){
         return (
             <obj.component /> // `React.createElement(obj.component)`
@@ -6675,6 +6698,26 @@ ReactDOM.render(
      ```
 
      **Note:** You still need to import React to use Hooks.
-
-
-
+     
+328. ### How do you get redux scaffolding using create-react-app?
+     Redux team has provided official redux+js or redux+typescript templates for create-react-app project. The generated project setup includes,
+     
+     1. Redux Toolkit and React-Redux dependencies
+     2. Create and configure Redux store
+     3. React-Redux `<Provider>` passing the store to React components
+     4. Small "counter" example to demo how to add redux logic and React-Redux hooks API to interact with the store from components
+     
+     The below commands need to be executed along with template option as below,
+     
+     1. **Javascript template:**
+     ```js
+     npx create-react-app my-app --template redux
+     ```
+     2. **Typescript template:**
+     ```js
+     npx create-react-app my-app --template redux-typescript
+     ````
+329. ### What are React Server components?
+     React Server Component is a way to write React component that gets rendered in the server-side with the purpose of improving React app performance. These components allow us to load components from the backend. 
+    
+     **Note:** React Server Components is still under development and not recommended for production yet.
