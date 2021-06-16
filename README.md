@@ -3,22 +3,27 @@
 > Click :star:if you like the project. Pull Request are highly appreciated. Follow me [@SudheerJonna](https://twitter.com/SudheerJonna) for technical updates.
 
 ---
-
 <div align="center">
-    <p>
         <a href="https://www.fullstack.cafe/?utm_source=github&utm_medium=sud">
-            <b>Having Tech Interview?</b>
-            <br> 3600 Tech Interview Questions. <b>Answered</b>.
-            <br>
+            3600 Tech Interview Questions. <b>Answered</b>.
             <div>
-                <img src="https://user-images.githubusercontent.com/13550565/76382460-cc784d80-6393-11ea-8837-2b89265ac853.png" width="260" alt="FullStack.Cafe">
+                <img src="https://user-images.githubusercontent.com/13550565/76382460-cc784d80-6393-11ea-8837-2b89265ac853.png" width="150" alt="FullStack.Cafe">
             </div>
         </a>
-        <sub><i>Proudly supporting React Interview Questions</i></sub>
-    </p>
 </div>
 
 ---
+<div>
+Learn to code and get hired with <a href="https://zerotomastery.io/?utm_source=github&utm_medium=sponsor&utm_campaign=reactjs-interview-questions">Zero To Mastery:</a>
+<ol>
+<li>This <a href="https://links.zerotomastery.io/react_sudheer">React course</a> is good if you’re struggling to learn React beyond the basics</li>
+<li>This <a href="http://links.zerotomastery.io/mci_sudheer">coding interview bootcamp</a> is helpful if you’re serious about getting hired as a developer</li>
+</ol>
+</div>
+
+---
+
+**Note:** This repository is specific to ReactJS. Please check [Javascript Interview questions](https://github.com/sudheerj/javascript-interview-questions) for core javascript questions.
 
 ## Downloading PDF/Epub formats
 
@@ -267,7 +272,7 @@ You can download the PDF and Epub version of this repository from the latest run
 |230| [What are the benefits of React Router V4?](#what-are-the-benefits-of-react-router-v4)|
 |231| [Can you describe about componentDidCatch lifecycle method signature?](#can-you-describe-about-componentdidcatch-lifecycle-method-signature)|
 |232| [In which scenarios error boundaries do not catch errors?](#in-which-scenarios-error-boundaries-do-not-catch-errors)|
-|233| [Why do not you need error boundaries for event handlers?](#why-do-not-you-need-error-boundaries-for-event-handlers)|
+|233| [Why do you not need error boundaries for event handlers?](#why-do-you-not-need-error-boundaries-for-event-handlers)|
 |234| [What is the difference between try catch block and error boundaries?](#what-is-the-difference-between-try-catch-block-and-error-boundaries)|
 |235| [What is the behavior of uncaught errors in react 16?](#what-is-the-behavior-of-uncaught-errors-in-react-16)|
 |236| [What is the proper placement for error boundaries?](#what-is-the-proper-placement-for-error-boundaries)|
@@ -506,7 +511,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
     *State* of a component is an object that holds some information that may change over the lifetime of the component. We should always try to make our state as simple as possible and minimize the number of stateful components.
 
-    Let's create an user component with message state,
+    Let's create a user component with message state,
 
 
     ```jsx harmony
@@ -531,7 +536,7 @@ You can download the PDF and Epub version of this repository from the latest run
 
     ![state](images/state.jpg)
 
-    State is similar to props, but it is private and fully controlled by the component. i.e, It is not accessible to any component other than the one that owns and sets it.
+    State is similar to props, but it is private and fully controlled by the component. i.e, It is not accessible to any other component til the owner component decides to pass it.
 
 
    **[⬆ Back to Top](#table-of-contents)**
@@ -605,7 +610,7 @@ You can download the PDF and Epub version of this repository from the latest run
 13. ### What is the difference between HTML and React event handling?
     Below are some of the main differences between HTML and React event handling,
 
-    1. In HTML, the event name should be in *lowercase*:
+    1. In HTML, the event name usually represents in *lowercase* as a convention:
 
         ```html
         <button onclick='activateLasers()'>
@@ -949,7 +954,15 @@ You can download the PDF and Epub version of this repository from the latest run
 28. ### What is the main goal of React Fiber?
 
     The goal of *React Fiber* is to increase its suitability for areas like animation, layout, and gestures. Its headline feature is **incremental rendering**: the ability to split rendering work into chunks and spread it out over multiple frames.
+    
+    *from documentation*
 
+    Its main goals are:
+      1. Ability to split interruptible work in chunks.
+      2. Ability to prioritize, rebase and reuse work in progress.
+      3. Ability to yield back and forth between parents and children to support layout in React.
+      4. Ability to return multiple elements from render().
+      5. Better support for error boundaries.
 
    **[⬆ Back to Top](#table-of-contents)**
     
@@ -2072,7 +2085,7 @@ You can download the PDF and Epub version of this repository from the latest run
     this.setState({ count: this.state.count + 1 })
     this.setState({ count: this.state.count + 1 })
     this.setState({ count: this.state.count + 1 })
-    // this.state.count === 1, not 3
+    // this.state.count === 0, not 3
     ```
 
     If we pass a function to `setState()`, the count gets incremented correctly.
@@ -2129,7 +2142,7 @@ You can download the PDF and Epub version of this repository from the latest run
               <ComponentTwo />
             </div>
           </React.StrictMode>
-          <Footer />
+          <Header />
         </div>
       )
     }
@@ -2223,19 +2236,18 @@ You can download the PDF and Epub version of this repository from the latest run
     ```
 
 
- #### What are the exceptions on React component naming?
+    #### What are the exceptions on React component naming?
 
-     The component names should start with a uppercase letter but there are few exceptions on this convention. The lowercase tag names with a dot (property accessors) are still considered as valid component names.
+    The component names should start with a uppercase letter but there are few exceptions on this convention. The lowercase tag names with a dot (property accessors) are still considered as valid component names.
+    For example the below tag can be compiled to a valid component,
 
-     For example the below tag can be compiled to a valid component,
-     
-     ```jsx harmony
-     render(){
-        return (
-            <obj.component /> // `React.createElement(obj.component)`
-           )
-     }
-     ```
+    ```jsx harmony
+         render() {
+              return (
+                <obj.component/> // `React.createElement(obj.component)`
+              )
+        }
+    ```
 
    **[⬆ Back to Top](#table-of-contents)**
     
@@ -3329,7 +3341,7 @@ You can download the PDF and Epub version of this repository from the latest run
          />
          ```
 
-    2. **Using an API:**
+     2. **Using an API:**
 
          ```javascript
          const messages = defineMessages({
@@ -5008,18 +5020,22 @@ You can download the PDF and Epub version of this repository from the latest run
 
    **[⬆ Back to Top](#table-of-contents)**
     
-233. ### Why do not you need error boundaries for event handlers?
-     Error boundaries do not catch errors inside event handlers. Event handlers don't happened or invoked during rendering time unlike render method or lifecycle methods. So React knows how to recover these kind of errors in event handlers.
-     If still you need to catch an error inside event handler, use the regular JavaScript try / catch statement as below
+233. ### Why do you not need error boundaries for event handlers?
+     Error boundaries do not catch errors inside event handlers.
+     
+     React doesn’t need error boundaries to recover from errors in event handlers. Unlike the render method and lifecycle methods, the event handlers don’t happen during rendering. So if they throw, React still knows what to display on the screen.
+
+     If you need to catch an error inside an event handler, use the regular JavaScript try / catch statement:
 
      ```javascript
      class MyComponent extends React.Component {
        constructor(props) {
          super(props);
          this.state = { error: null };
+         this.handleClick = this.handleClick.bind(this);
        }
 
-       handleClick = () => {
+       handleClick() {
          try {
            // Do something that could throw
          } catch (error) {
@@ -5031,11 +5047,11 @@ You can download the PDF and Epub version of this repository from the latest run
          if (this.state.error) {
            return <h1>Caught an error.</h1>
          }
-         return <div onClick={this.handleClick}>Click Me</div>
+         return <button onClick={this.handleClick}>Click Me</button>
        }
      }
      ```
-     The above code is catching the error using vanilla javascript try/catch block instead of error boundaries.
+     Note that the above example is demonstrating regular JavaScript behavior and doesn’t use error boundaries.
 
    **[⬆ Back to Top](#table-of-contents)**
     
@@ -5160,7 +5176,7 @@ You can download the PDF and Epub version of this repository from the latest run
      ```javascript
      static getDerivedStateFromError(error)
      ```
-     Let us take error boundary use case with the above lifecycle method for demonistration purpose,
+     Let us take error boundary use case with the above lifecycle method for demonstration purpose,
      ```javascript
      class ErrorBoundary extends React.Component {
        constructor(props) {
@@ -5947,8 +5963,8 @@ You can download the PDF and Epub version of this repository from the latest run
      Refs will not get passed through because ref is not a prop. It handled differently by React just like **key**. If you add a ref to a HOC, the ref will refer to the outermost container component, not the wrapped component. In this case, you can use Forward Ref API. For example, we can explicitly forward refs to the inner FancyButton component using the React.forwardRef API.
 
      The below HOC logs all props,
-
-         ```javascript
+     
+     ```javascript
          function logProps(Component) {
            class LogProps extends React.Component {
              componentDidUpdate(prevProps) {
@@ -5968,11 +5984,11 @@ You can download the PDF and Epub version of this repository from the latest run
              return <LogProps {...props} forwardedRef={ref} />;
            });
          }
-         ```
+     ```
 
      Let's use this HOC to log all props that get passed to our “fancy button” component,
 
-         ```javascript
+     ```javascript
          class FancyButton extends React.Component {
            focus() {
              // ...
@@ -5981,11 +5997,11 @@ You can download the PDF and Epub version of this repository from the latest run
            // ...
          }
          export default logProps(FancyButton);
-         ```
+     ```
 
      Now lets create a ref and pass it to FancyButton component. In this case, you can set focus to button element.
 
-         ```javascript
+     ```javascript
          import FancyButton from './FancyButton';
 
          const ref = React.createRef();
@@ -5995,7 +6011,7 @@ You can download the PDF and Epub version of this repository from the latest run
            handleClick={handleClick}
            ref={ref}
          />;
-         ```
+     ```
 
    **[⬆ Back to Top](#table-of-contents)**
     
@@ -6721,3 +6737,8 @@ ReactDOM.render(
      React Server Component is a way to write React component that gets rendered in the server-side with the purpose of improving React app performance. These components allow us to load components from the backend. 
     
      **Note:** React Server Components is still under development and not recommended for production yet.
+     
+330. ### What is prop drilling?
+     Prop Drilling is the process by which you pass data from one component of the React Component tree to another by going through other components that do not need the data but only help in passing it around.
+     
+331. ### What are the different ways to prevent state mutation?
